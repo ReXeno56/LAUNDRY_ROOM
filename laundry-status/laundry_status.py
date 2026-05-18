@@ -24,7 +24,7 @@ def fetch_devices(position_id, category_code="00"):
         "categoryCode": category_code,
         "page": 1,
         "floorCode": "",
-        "pageSize": 20,
+        "pageSize": 100,
     }
     try:
         resp = requests.post(API_URL, json=body, timeout=10)
@@ -124,6 +124,9 @@ def main():
         print(format_building(bid))
     else:
         bid = find_building(DEFAULT_BUILDING)
+        if bid is None:
+            print(f"错误：默认楼栋「{DEFAULT_BUILDING}」未在 BUILDINGS 中找到", file=sys.stderr)
+            sys.exit(1)
         print(format_building(bid))
 
 
