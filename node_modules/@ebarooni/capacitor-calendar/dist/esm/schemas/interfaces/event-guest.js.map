@@ -1,0 +1,1 @@
+{"version":3,"file":"event-guest.js","sourceRoot":"","sources":["../../../../src/schemas/interfaces/event-guest.ts"],"names":[],"mappings":"","sourcesContent":["/**\n * @since 7.1.0\n */\nexport interface EventGuest {\n  /**\n   * @since 7.1.0\n   */\n  name?: string;\n  /**\n   * @since 7.1.0\n   */\n  email: string;\n}\n"]}

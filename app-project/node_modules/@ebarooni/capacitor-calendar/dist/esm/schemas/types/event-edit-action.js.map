@@ -1,0 +1,1 @@
+{"version":3,"file":"event-edit-action.js","sourceRoot":"","sources":["../../../../src/schemas/types/event-edit-action.ts"],"names":[],"mappings":"","sourcesContent":["/**\n * @since 7.1.0\n */\nexport type EventEditAction = 'canceled' | 'saved' | 'deleted';\n"]}

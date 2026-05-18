@@ -1,0 +1,1 @@
+{"version":3,"file":"recurrence-frequency.js","sourceRoot":"","sources":["../../../../src/schemas/types/recurrence-frequency.ts"],"names":[],"mappings":"","sourcesContent":["/**\n * @since 7.3.0\n */\nexport type RecurrenceFrequency = 'daily' | 'weekly' | 'monthly' | 'yearly';\n"]}

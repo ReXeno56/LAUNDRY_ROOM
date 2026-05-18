@@ -1,0 +1,9 @@
+{
+  "appId": "com.laundry.room",
+  "appName": "洗衣提醒",
+  "webDir": "www",
+  "server": {
+    "url": "http://106.14.91.217:5000",
+    "cleartext": true
+  }
+}

@@ -1,0 +1,1 @@
+{"version":3,"file":"reminders-list.js","sourceRoot":"","sources":["../../../../src/schemas/interfaces/reminders-list.ts"],"names":[],"mappings":"","sourcesContent":["import type { Calendar } from './calendar';\n\n/**\n * @since 7.1.0\n */\nexport type RemindersList = Calendar;\n"]}
