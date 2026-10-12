@@ -1,0 +1,5 @@
+{
+  "navigationBarTitleText": "交大洗衣状态",
+  "enablePullDownRefresh": true,
+  "usingComponents": { "device-card": "/components/device-card/index" }
+}

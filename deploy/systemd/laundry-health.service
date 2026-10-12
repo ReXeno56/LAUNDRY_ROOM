@@ -1,0 +1,12 @@
+[Unit]
+Description=Laundry public API and reminder health check
+After=network-online.target laundry.service laundry-reminders.service
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+WorkingDirectory=/root/laundry
+Environment=LAUNDRY_DB=/root/laundry/instance/laundry.sqlite3
+Environment=LAUNDRY_HEALTH_URL=https://sjtulaundry.xyz/api/health
+UMask=0077
+ExecStart=/root/laundry/venv/bin/python -m laundry.maintenance health

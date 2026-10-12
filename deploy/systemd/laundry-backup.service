@@ -1,0 +1,10 @@
+[Unit]
+Description=Laundry daily database and configuration backup
+
+[Service]
+Type=oneshot
+WorkingDirectory=/root/laundry
+Environment=LAUNDRY_DB=/root/laundry/instance/laundry.sqlite3
+Environment=LAUNDRY_BACKUP_DIR=/root/laundry-backups/daily
+UMask=0077
+ExecStart=/root/laundry/venv/bin/python -m laundry.maintenance backup

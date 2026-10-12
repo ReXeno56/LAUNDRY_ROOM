@@ -1,1 +1,0 @@
-{"version":3,"file":"delete-reminders-by-id-options.js","sourceRoot":"","sources":["../../../../src/schemas/interfaces/delete-reminders-by-id-options.ts"],"names":[],"mappings":"","sourcesContent":["/**\n * @since 7.1.0\n */\nexport interface DeleteRemindersByIdOptions {\n  /**\n   * @since 7.1.0\n   */\n  ids: string[];\n}\n"]}

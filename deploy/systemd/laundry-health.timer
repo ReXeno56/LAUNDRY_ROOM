@@ -1,0 +1,10 @@
+[Unit]
+Description=Laundry health check every minute
+
+[Timer]
+OnBootSec=1min
+OnUnitActiveSec=1min
+Unit=laundry-health.service
+
+[Install]
+WantedBy=timers.target

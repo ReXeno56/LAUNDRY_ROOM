@@ -1,1 +1,0 @@
-{"version":3,"file":"delete-reminder-options.js","sourceRoot":"","sources":["../../../../src/schemas/interfaces/delete-reminder-options.ts"],"names":[],"mappings":"","sourcesContent":["/**\n * @since 7.1.0\n */\nexport interface DeleteReminderOptions {\n  /**\n   * @since 7.1.0\n   */\n  id: string;\n}\n"]}

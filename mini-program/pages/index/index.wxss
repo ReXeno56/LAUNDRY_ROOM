@@ -1,0 +1,143 @@
+/* Colors match static/laundry.css; native chrome is configured in theme.json. */
+.container { padding: 40rpx 40rpx calc(56rpx + env(safe-area-inset-bottom)); box-sizing: border-box; }
+.header { display: flex; align-items: center; margin: 12rpx 0 48rpx; }
+.brand-mark { display: flex; align-items: center; justify-content: center; width: 92rpx; height: 92rpx; border-radius: 28rpx; color: #18794e; background: #e7f4eb; flex-shrink: 0; margin-right: 24rpx; }
+.machine-icon { position: relative; width: 44rpx; height: 52rpx; border: 3rpx solid currentColor; border-radius: 9rpx; box-sizing: border-box; }
+.machine-light { position: absolute; left: 7rpx; top: 7rpx; width: 15rpx; height: 3rpx; background: currentColor; border-radius: 3rpx; }
+.machine-drum { position: absolute; left: 7rpx; top: 17rpx; width: 23rpx; height: 23rpx; border: 3rpx solid currentColor; border-radius: 50%; box-sizing: border-box; }
+.header-copy { min-width: 0; }
+.headline { display: block; font-size: 46rpx; font-weight: 700; line-height: 1.3; }
+.subtitle { display: block; font-size: 22rpx; color: #647366; margin-top: 8rpx; }
+.theme-label { margin-left: auto; display: flex; align-items: center; flex-shrink: 0; font-size: 20rpx; color: #647366; }
+.theme-symbol { width: 22rpx; height: 22rpx; border: 2rpx solid currentColor; border-radius: 50%; background: #647366; box-shadow: inset 10rpx 0 #f5f7f3; margin-right: 8rpx; }
+.tabs { display: flex; padding: 8rpx; background: #f0f4ee; border: 1rpx solid #dee6dc; border-radius: 28rpx; margin-bottom: 36rpx; }
+.tab { flex: 1; min-height: 88rpx; display: flex; align-items: center; justify-content: center; padding: 16rpx; border-radius: 20rpx; color: #647366; font-size: 28rpx; font-weight: 600; background: transparent; }
+.tab + .tab { margin-left: 8rpx; }
+.tab.active { background: #ffffff; color: #18794e; }
+.overview { display: flex; overflow: hidden; border-radius: 36rpx; border: 1rpx solid #dee6dc; background: #ffffff; }
+.reservation-info { margin-top: 24rpx; padding: 26rpx 28rpx; border: 1rpx solid #dee6dc; border-radius: 26rpx; background: #fff; color: #647366; font-size: 22rpx; }
+.reservation-heading { display: flex; align-items: baseline; flex-wrap: wrap; }
+.reservation-title { color: #203329; font-weight: 600; margin-right: 16rpx; }
+.reservation-updated { margin-top: 6rpx; }
+.reservation-warning { display: block; margin-top: 12rpx; line-height: 1.7; }
+.reservation-source { display: inline-flex; min-height: 72rpx; padding: 18rpx 0 0; background: transparent; color: #18794e; font-size: 22rpx; }
+.reservation-info.unavailable { background: #fff2df; color: #995416; border-color: transparent; }
+.reservation-info.unavailable .reservation-title { color: #995416; }
+.theme-dark .reservation-info { background: #1c1f23; border-color: #343a42; color: #9ca6b3; }
+.theme-dark .reservation-title { color: #f2f4f7; }
+.theme-dark .reservation-source { color: #75c9a5; }
+.theme-dark .reservation-info.unavailable { background: #362d22; color: #e6b56f; border-color: transparent; }
+.theme-dark .reservation-info.unavailable .reservation-title { color: #e6b56f; }
+.availability { flex: 1.35; min-width: 0; padding: 42rpx 36rpx; background: #e8f3e8; }
+.eyebrow { color: #18794e; font-size: 24rpx; font-weight: 500; }
+.available-number { display: flex; align-items: baseline; margin-top: 4rpx; color: #18794e; }
+.available-value { font-size: 116rpx; font-weight: 650; line-height: 1.15; letter-spacing: -5rpx; font-variant-numeric: tabular-nums; }
+.count-unit { font-size: 30rpx; margin-left: 20rpx; }
+.available-detail { display: block; color: #647366; font-size: 22rpx; margin-top: 14rpx; white-space: nowrap; }
+.secondary-stats { flex: 1; min-width: 0; display: flex; flex-direction: column; padding: 14rpx 30rpx; }
+.stat { flex: 1; display: flex; align-items: center; justify-content: space-between; }
+.stat + .stat { border-top: 1rpx solid #dee6dc; }
+.stat-label { display: flex; align-items: center; font-size: 22rpx; color: #647366; white-space: nowrap; }
+.status-dot { width: 12rpx; height: 12rpx; border-radius: 50%; margin-right: 10rpx; flex-shrink: 0; }
+.running-dot { background: #995416; }
+.error-dot { background: #b23f4b; }
+.stat-number { font-size: 52rpx; font-weight: 600; font-variant-numeric: tabular-nums; margin-left: 12rpx; }
+.list-toolbar { display: flex; align-items: center; justify-content: space-between; margin: 44rpx 0 28rpx; }
+.list-heading { display: flex; align-items: center; }
+.list-title { font-size: 32rpx; font-weight: 650; }
+.data-status { color: #647366; font-size: 22rpx; margin-left: 18rpx; }
+.data-status.stale { color: #995416; }
+.refresh-button { display: flex; align-items: center; justify-content: center; min-height: 88rpx; padding: 12rpx 24rpx; background: #ffffff; border: 1rpx solid #dee6dc; border-radius: 24rpx; font-size: 24rpx; color: #203329; }
+.refresh-symbol { font-size: 36rpx; margin-right: 10rpx; line-height: 1; }
+.device-section + .device-section { margin-top: 48rpx; }
+.section-head { display: flex; align-items: baseline; margin-bottom: 22rpx; color: #647366; }
+.section-title { font-size: 26rpx; font-weight: 600; }
+.section-count { font-size: 22rpx; margin-left: 24rpx; }
+.error-banner { padding: 28rpx 32rpx; border-radius: 24rpx; background: #fff2df; color: #995416; margin-bottom: 28rpx; font-size: 26rpx; line-height: 1.7; }
+.retry-btn { display: inline-flex; align-items: center; justify-content: center; min-height: 88rpx; padding: 14rpx 28rpx; background: #ffffff; color: #203329; border: 1rpx solid #dee6dc; border-radius: 20rpx; font-size: 24rpx; margin-top: 20rpx; }
+.placeholder { text-align: center; padding: 100rpx 32rpx; border: 1rpx dashed #dee6dc; border-radius: 32rpx; background: #ffffff; }
+.placeholder-title { display: block; font-size: 28rpx; font-weight: 600; margin-top: 20rpx; }
+.placeholder-detail { display: block; font-size: 24rpx; color: #647366; margin-top: 12rpx; }
+.loader { display: inline-block; width: 48rpx; height: 48rpx; border: 4rpx solid #dee6dc; border-top-color: #18794e; border-radius: 50%; animation: spin .8s linear infinite; }
+@keyframes spin { to { transform: rotate(360deg); } }
+.page-footer { margin-top: 48rpx; padding-top: 36rpx; border-top: 1rpx solid #dee6dc; color: #647366; }
+.refresh { display: block; font-size: 22rpx; font-variant-numeric: tabular-nums; }
+.usage-hint { display: block; margin-top: 16rpx; font-size: 22rpx; line-height: 1.8; }
+button { margin: 0; box-sizing: border-box; line-height: 1.4; }
+button::after { border: 0; }
+button[disabled] { opacity: .55; }
+.theme-dark .brand-mark { color: #75c9a5; background: #22372e; }
+.theme-dark .subtitle, .theme-dark .theme-label, .theme-dark .available-detail, .theme-dark .stat-label, .theme-dark .data-status, .theme-dark .section-head, .theme-dark .placeholder-detail, .theme-dark .page-footer { color: #9ca6b3; }
+.theme-dark .theme-symbol { background: #9ca6b3; box-shadow: inset 10rpx 0 #111316; }
+.theme-dark .tabs { background: #111316; border-color: #343a42; }
+.theme-dark .tab { color: #9ca6b3; }
+.theme-dark .tab.active { background: #262a2f; color: #f2f4f7; box-shadow: inset 0 0 0 1rpx rgba(117,201,165,.28), 0 4rpx 12rpx rgba(0,0,0,.16); }
+.theme-dark .overview { background: #1c1f23; border-color: #343a42; box-shadow: 0 8rpx 24rpx rgba(0,0,0,.12); }
+.theme-dark .availability { background: linear-gradient(145deg, #26382e, #202b26); }
+.theme-dark .eyebrow { color: #75c9a5; }
+.theme-dark .available-number, .theme-dark .stat-number { color: #f2f4f7; }
+.theme-dark .stat + .stat, .theme-dark .page-footer { border-color: #343a42; }
+.theme-dark .running-dot { background: #e6b56f; }
+.theme-dark .error-dot { background: #ee929b; }
+.theme-dark .data-status.stale { color: #e6b56f; }
+.theme-dark .refresh-button, .theme-dark .retry-btn { background: #1c1f23; border-color: #343a42; color: #f2f4f7; }
+.theme-dark .error-banner { background: #362d22; color: #e6b56f; }
+.theme-dark .placeholder { background: #1c1f23; border-color: #343a42; }
+.theme-dark .loader { border-color: #343a42; border-top-color: #75c9a5; }
+
+
+@media (prefers-reduced-motion: reduce) {
+  .loader { animation: none; }
+}
+
+.container { min-height: 100vh; background: #f5f7f3; color: #203329; }
+.container.theme-dark { background: #111316; color: #f2f4f7; }
+.header-copy { flex: 1; }
+.theme-control { position: relative; margin-left: 12rpx; flex-shrink: 0; }
+.theme-label { padding: 12rpx 0 12rpx 8rpx; min-height: 64rpx; background: transparent; }
+.menu-caret { margin-left: 6rpx; font-size: 26rpx; }
+.theme-menu { position: absolute; right: 0; top: 100%; z-index: 10; width: 236rpx; padding: 8rpx; background: #fff; border: 1rpx solid #dee6dc; border-radius: 22rpx; box-shadow: 0 16rpx 42rpx rgba(32,51,41,.12); }
+.theme-option { width: 100%; display: flex; align-items: center; justify-content: space-between; min-height: 80rpx; padding: 18rpx 20rpx; background: transparent; color: #203329; font-size: 26rpx; border-radius: 16rpx; text-align: left; }
+.theme-option.selected { color: #18794e; background: #e7f4eb; }
+.my-reminders { margin-top: 28rpx; background: #fff; border: 1rpx solid #dee6dc; border-radius: 28rpx; overflow: hidden; }
+.reminders-toggle { width: 100%; display: flex; justify-content: space-between; align-items: center; background: transparent; color: #203329; min-height: 100rpx; padding: 24rpx 28rpx; }
+.reminders-title { display: flex; align-items: center; font-size: 28rpx; font-weight: 600; }
+.reminders-count { margin-left: 18rpx; color: #647366; font-size: 22rpx; font-weight: 400; }
+.expand-arrow { font-size: 30rpx; color: #647366; }
+.reminders-content { border-top: 1rpx solid #dee6dc; padding: 16rpx 28rpx 28rpx; }
+.reminders-toolbar { display: flex; align-items: center; justify-content: space-between; color: #647366; font-size: 22rpx; }
+.reminders-refresh { min-height: 72rpx; background: transparent; color: #18794e; padding: 12rpx; font-size: 24rpx; }
+.reminders-error { padding: 20rpx; background: #fff2df; color: #995416; border-radius: 18rpx; font-size: 24rpx; line-height: 1.6; margin: 10rpx 0 24rpx; }
+.reminders-subhead { display: block; color: #647366; font-size: 22rpx; margin: 12rpx 0; }
+.history-heading { margin-top: 30rpx; }
+.reminders-empty { display: block; font-size: 24rpx; color: #647366; padding: 22rpx 0; }
+.reminder-row { padding: 24rpx 0; border-bottom: 1rpx solid #dee6dc; }
+.reminder-row-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 16rpx; }
+.reminder-name { font-size: 26rpx; font-weight: 500; line-height: 1.5; word-break: break-all; flex: 1; }
+.reminder-status { flex-shrink: 0; font-size: 22rpx; line-height: 1.7; }
+.reminder-status.positive { color: #18794e; }
+.reminder-status.warning { color: #995416; }
+.reminder-status.negative { color: #b23f4b; }
+.reminder-status.muted { color: #647366; }
+.reminder-details { display: block; margin-top: 10rpx; color: #647366; font-size: 23rpx; line-height: 1.6; }
+.cancel-reminder { display: inline-flex; align-items: center; min-height: 76rpx; margin-top: 16rpx; padding: 14rpx 22rpx; background: #f0f4ee; color: #203329; border-radius: 18rpx; font-size: 24rpx; }
+.sending-hint, .reminders-hint { display: block; font-size: 22rpx; color: #647366; line-height: 1.8; margin-top: 18rpx; }
+.filter-toolbar { display: flex; flex-wrap: wrap; gap: 14rpx; align-items: center; justify-content: space-between; color: #647366; font-size: 21rpx; margin: -12rpx 0 26rpx; }
+.idle-filter { display: flex; align-items: center; gap: 12rpx; }
+.idle-filter switch { transform: scale(.75); transform-origin: right center; margin-left: -16rpx; }
+.filter-empty { padding: 36rpx; border: 1rpx dashed #dee6dc; border-radius: 26rpx; font-size: 24rpx; color: #647366; text-align: center; }
+.theme-dark .theme-menu, .theme-dark .my-reminders { background: #1c1f23; border-color: #343a42; }
+.theme-dark .theme-option, .theme-dark .reminders-toggle, .theme-dark .cancel-reminder { color: #f2f4f7; }
+.theme-dark .theme-option.selected { color: #75c9a5; background: #262a2f; box-shadow: inset 3rpx 0 #75c9a5; }
+.theme-dark .reminders-count, .theme-dark .expand-arrow, .theme-dark .reminders-toolbar, .theme-dark .reminders-subhead, .theme-dark .reminders-empty, .theme-dark .reminder-details, .theme-dark .sending-hint, .theme-dark .reminders-hint, .theme-dark .filter-toolbar, .theme-dark .filter-empty, .theme-dark .reminder-status.muted { color: #9ca6b3; }
+.theme-dark .reminders-content, .theme-dark .reminder-row, .theme-dark .filter-empty { border-color: #343a42; }
+.theme-dark .reminders-refresh, .theme-dark .reminder-status.positive { color: #75c9a5; }
+.theme-dark .reminder-status.warning { color: #e6b56f; }
+.theme-dark .reminder-status.negative { color: #ee929b; }
+.theme-dark .reminders-error { background: #362d22; color: #e6b56f; }
+.theme-dark .cancel-reminder { background: #262a2f; }
+
+.theme-dark .theme-menu { box-shadow: 0 18rpx 46rpx rgba(0,0,0,.3); }
+.theme-dark .my-reminders { box-shadow: 0 6rpx 20rpx rgba(0,0,0,.1); }
+
+.theme-dark .count-unit { color: #9ca6b3; }

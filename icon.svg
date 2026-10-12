@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="144" height="144" viewBox="0 0 144 144">
+  <!-- 蓝色圆角背景 -->
+  <rect width="144" height="144" rx="28" fill="#4A90D9"/>
+
+  <!-- 洗衣机外框 -->
+  <rect x="32" y="30" width="80" height="86" rx="10" stroke="white" stroke-width="5" fill="none"/>
+
+  <!-- 顶部面板分隔线 -->
+  <line x1="32" y1="56" x2="112" y2="56" stroke="white" stroke-width="5"/>
+
+  <!-- 左旋钮 -->
+  <circle cx="50" cy="43" r="7" stroke="white" stroke-width="3" fill="none"/>
+  <line x1="50" y1="38" x2="50" y2="43" stroke="white" stroke-width="2.5" stroke-linecap="round"/>
+
+  <!-- 右旋钮 -->
+  <circle cx="70" cy="43" r="7" stroke="white" stroke-width="3" fill="none"/>
+  <line x1="70" y1="38" x2="70" y2="43" stroke="white" stroke-width="2.5" stroke-linecap="round"/>
+
+  <!-- 指示灯 -->
+  <circle cx="100" cy="43" r="4" fill="#7ED957"/>
+
+  <!-- 圆形门 -->
+  <circle cx="72" cy="92" r="28" stroke="white" stroke-width="5" fill="none"/>
+
+  <!-- 门内同心圆（玻璃窗效果） -->
+  <circle cx="72" cy="92" r="18" stroke="white" stroke-width="2" fill="none" opacity="0.5"/>
+
+  <!-- 门把手 -->
+  <rect x="97" y="88" width="8" height="8" rx="2" fill="white"/>
+</svg>

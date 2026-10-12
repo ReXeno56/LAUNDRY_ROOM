@@ -1,0 +1,10 @@
+[Unit]
+Description=Laundry backup every day at 03:00 Asia/Shanghai
+
+[Timer]
+OnCalendar=*-*-* 03:00:00 Asia/Shanghai
+Persistent=true
+Unit=laundry-backup.service
+
+[Install]
+WantedBy=timers.target

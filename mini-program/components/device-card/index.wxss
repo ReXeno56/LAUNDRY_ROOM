@@ -1,0 +1,58 @@
+.card { background: #ffffff; border: 1rpx solid #dee6dc; border-radius: 32rpx; padding: 34rpx; margin-bottom: 20rpx; box-sizing: border-box; }
+.card-header { display: flex; align-items: flex-start; }
+.card-icon { display: flex; align-items: center; justify-content: center; width: 80rpx; height: 88rpx; border-radius: 22rpx; background: #f0f4ee; color: #647366; flex-shrink: 0; margin-right: 24rpx; }
+.machine-icon { position: relative; width: 42rpx; height: 50rpx; border: 3rpx solid currentColor; border-radius: 8rpx; box-sizing: border-box; }
+.machine-light { position: absolute; left: 6rpx; top: 6rpx; width: 14rpx; height: 3rpx; background: currentColor; border-radius: 3rpx; }
+.machine-drum { position: absolute; left: 6rpx; top: 16rpx; width: 22rpx; height: 22rpx; border: 3rpx solid currentColor; border-radius: 50%; box-sizing: border-box; }
+.card.idle .card-icon { background: #e7f4eb; color: #18794e; }
+.card-main { flex: 1; min-width: 0; }
+.card-name { display: block; font-size: 30rpx; font-weight: 600; line-height: 1.45; color: #203329; word-break: break-all; }
+.card-time { display: block; font-size: 24rpx; color: #647366; margin-top: 10rpx; line-height: 1.5; }
+.card-badge { padding: 8rpx 16rpx; font-size: 22rpx; font-weight: 600; border-radius: 16rpx; flex-shrink: 0; margin-left: 18rpx; line-height: 1.5; }
+.card-badge.idle { background: #e7f4eb; color: #18794e; }
+.card-badge.running { background: #fff2df; color: #995416; }
+.card-badge.error { background: #fcebee; color: #b23f4b; }
+.card-badge.reserved { background: #fff2df; color: #995416; }
+.card.reserved .card-icon { background: #fff2df; color: #995416; }
+.card-badge.reservation-unknown { background: #f0f4ee; color: #647366; }
+.card-reservations { margin-top: 24rpx; padding-top: 20rpx; border-top: 1rpx solid #dee6dc; font-size: 22rpx; line-height: 1.7; word-break: break-all; }
+.reservation-current { display: block; color: #995416; }
+.reservation-next { display: block; color: #647366; }
+.reservation-current + .reservation-next { margin-top: 8rpx; }
+.card-actions { margin-top: 28rpx; padding-top: 18rpx; border-top: 1rpx solid #dee6dc; }
+.remind-btn { background: transparent; color: #18794e; font-size: 26rpx; font-weight: 600; display: inline-flex; align-items: center; padding: 8rpx 4rpx; min-height: 88rpx; }
+.reminder-saved { color: #18794e; font-size: 26rpx; padding: 20rpx 0; }
+.remind-box { padding: 28rpx; background: #f0f4ee; border-radius: 24rpx; margin-top: 12rpx; }
+.remind-heading { display: flex; align-items: center; justify-content: space-between; }
+.remind-label { font-size: 26rpx; color: #203329; font-weight: 500; }
+.remind-value { display: flex; align-items: baseline; }
+.remind-big { font-size: 48rpx; color: #18794e; font-weight: 650; line-height: 1.2; }
+.remind-unit { font-size: 24rpx; color: #647366; margin-left: 10rpx; }
+.remind-box slider { margin: 32rpx 6rpx 20rpx; }
+.slider-scale { display: flex; justify-content: space-between; font-size: 22rpx; color: #647366; }
+.remind-at { text-align: center; font-size: 24rpx; color: #647366; margin: 28rpx 0 22rpx; }
+.remind-at-time { color: #203329; font-weight: 600; font-variant-numeric: tabular-nums; }
+.remind-ok { width: 100%; min-height: 88rpx; padding: 20rpx 12rpx; border-radius: 20rpx; background: #18794e; color: #ffffff; font-size: 26rpx; font-weight: 600; }
+button { margin: 0; box-sizing: border-box; line-height: 1.4; }
+button::after { border: 0; }
+button[disabled] { opacity: .55; }
+.theme-dark .card { background: #1c1f23; border-color: #343a42; box-shadow: 0 6rpx 20rpx rgba(0,0,0,.12); }
+.theme-dark .card-icon { background: #262a2f; color: #9ca6b3; }
+.theme-dark .card.idle .card-icon { background: #22372e; color: #75c9a5; }
+.theme-dark .card-name, .theme-dark .remind-label, .theme-dark .remind-at-time { color: #f2f4f7; }
+.theme-dark .card-time, .theme-dark .remind-unit, .theme-dark .slider-scale, .theme-dark .remind-at { color: #9ca6b3; }
+.theme-dark .card-badge.idle { background: #22372e; color: #75c9a5; }
+.theme-dark .card-badge.running { background: #362d22; color: #e6b56f; }
+.theme-dark .card-badge.error { background: #37262c; color: #ee929b; }
+.theme-dark .card-badge.reserved, .theme-dark .card.reserved .card-icon { background: #362d22; color: #e6b56f; }
+.theme-dark .card-badge.reservation-unknown { background: #262a2f; color: #9ca6b3; }
+.theme-dark .card-reservations { border-color: #343a42; }
+.theme-dark .reservation-current { color: #e6b56f; }
+.theme-dark .reservation-next { color: #9ca6b3; }
+.theme-dark .card-actions { border-color: #343a42; }
+.theme-dark .remind-btn, .theme-dark .reminder-saved { color: #75c9a5; }
+.theme-dark .remind-big { color: #f2f4f7; }
+.theme-dark .remind-box { background: #262a2f; }
+.theme-dark .remind-ok { background: #75c9a5; color: #10241b; }
+
+

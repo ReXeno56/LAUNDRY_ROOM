@@ -1,1 +1,0 @@
-{"version":3,"file":"get-reminder-by-id-options.js","sourceRoot":"","sources":["../../../../src/schemas/interfaces/get-reminder-by-id-options.ts"],"names":[],"mappings":"","sourcesContent":["export interface GetReminderByIdOptions {\n  /**\n   * @since 7.1.0\n   */\n  id: string;\n}\n"]}

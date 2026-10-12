@@ -1,0 +1,88 @@
+<view class="container theme-{{theme}}">
+  <view class="header">
+    <view class="brand-mark"><view class="machine-icon"><view class="machine-light"></view><view class="machine-drum"></view></view></view>
+    <view class="header-copy"><text class="headline">洗衣状态</text><text class="subtitle">上海交通大学 · 闵行校区</text></view>
+    <view class="theme-control">
+      <button class="theme-label" bindtap="toggleThemeMenu" aria-label="选择界面主题，当前{{themeLabel}}" aria-expanded="{{themeMenuOpen}}"><view class="theme-symbol"></view><text>{{themeLabel}}</text><text class="menu-caret">⌄</text></button>
+      <view class="theme-menu" wx:if="{{themeMenuOpen}}">
+        <button class="theme-option {{themeMode === 'system' ? 'selected' : ''}}" data-mode="system" bindtap="chooseTheme">跟随系统<text wx:if="{{themeMode === 'system'}}">✓</text></button>
+        <button class="theme-option {{themeMode === 'light' ? 'selected' : ''}}" data-mode="light" bindtap="chooseTheme">浅色<text wx:if="{{themeMode === 'light'}}">✓</text></button>
+        <button class="theme-option {{themeMode === 'dark' ? 'selected' : ''}}" data-mode="dark" bindtap="chooseTheme">深色<text wx:if="{{themeMode === 'dark'}}">✓</text></button>
+      </view>
+    </view>
+  </view>
+  <view class="tabs" aria-label="选择楼栋">
+    <button class="tab {{currentIdx === index ? 'active' : ''}}" wx:for="{{buildings}}" wx:key="id" disabled="{{submitting}}" bindtap="switchBuilding" data-idx="{{index}}" aria-label="{{item.name}}{{currentIdx === index ? '，已选择' : ''}}">{{item.name}}</button>
+  </view>
+  <view class="overview">
+    <view class="availability">
+      <text class="eyebrow">{{buildings[currentIdx].id === '27136' ? (availabilityUnconfirmed ? '已确认可用' : '当前可用') : '现在空闲'}}</text>
+      <view class="available-number"><text class="available-value">{{hasData ? idleCount : '—'}}</text><text class="count-unit">台</text></view>
+      <text class="available-detail" wx:if="{{hasData}}">洗衣 {{washerIdleCount}} 台 · 烘干 {{dryerIdleCount}} 台</text>
+      <text class="available-detail" wx:else>{{error ? '暂时无法获取设备状态' : '正在获取设备状态'}}</text>
+    </view>
+    <view class="secondary-stats">
+      <view class="stat"><view class="stat-label"><view class="status-dot running-dot"></view><text>使用中</text></view><text class="stat-number">{{hasData ? runningCount : '—'}}</text></view>
+      <view class="stat"><view class="stat-label"><view class="status-dot error-dot"></view><text>异常 / 离线</text></view><text class="stat-number">{{hasData ? errorCount : '—'}}</text></view>
+    </view>
+  </view>
+  <view class="reservation-info {{reservationStatus === 'ok' ? '' : 'unavailable'}}" wx:if="{{hasReservations}}">
+    <view class="reservation-heading"><text class="reservation-title">{{reservationStatus === 'ok' ? '已结合西16预约文档' : '预约信息待确认'}}</text><text class="reservation-updated" wx:if="{{reservationUpdatedAt}}">采集于 {{reservationUpdatedAt}}</text></view>
+    <text class="reservation-warning">{{reservationStatus === 'ok' ? '请按预约时段使用，开始前预留足够时间。' : '预约表暂不可用，设备空闲不代表可直接使用'}}</text>
+    <button class="reservation-source" wx:if="{{reservationSourceUrl}}" bindtap="copyReservationSource">复制预约文档链接 ↗</button>
+  </view>
+  <view class="my-reminders">
+    <button class="reminders-toggle" bindtap="toggleReminders" aria-expanded="{{remindersExpanded}}">
+      <view class="reminders-title"><text>我的提醒</text><text class="reminders-count" wx:if="{{remindersLoaded}}">{{reminderActive.length}} 项进行中</text></view>
+      <text class="expand-arrow">{{remindersExpanded ? '⌃' : '⌄'}}</text>
+    </button>
+    <view class="reminders-content" wx:if="{{remindersExpanded}}">
+      <view class="reminders-toolbar"><text>{{reminderLoading ? '正在更新' : (reminderUpdatedAt ? '更新于 ' + reminderUpdatedAt : '全部楼栋')}}</text><button class="reminders-refresh" bindtap="fetchReminders" disabled="{{reminderLoading}}">刷新</button></view>
+      <view class="reminders-error" wx:if="{{reminderError}}">{{reminderError}}{{remindersLoaded ? '；保留上次记录' : ''}}</view>
+      <text class="reminders-empty" wx:if="{{reminderLoading && !remindersLoaded}}">正在加载提醒…</text>
+      <block wx:if="{{remindersLoaded}}">
+        <text class="reminders-subhead">进行中</text>
+        <text class="reminders-empty" wx:if="{{!reminderActive.length}}">暂无进行中的提醒</text>
+        <view class="reminder-row" wx:for="{{reminderActive}}" wx:key="reminderId">
+          <view class="reminder-row-head"><text class="reminder-name">{{item.buildingName}} · {{item.name}}</text><text class="reminder-status {{item.statusClass}}">{{item.statusText}}</text></view>
+          <text class="reminder-details">{{item.remindDateText}} 提醒 · 提前 {{item.minutes}} 分钟</text>
+          <button class="cancel-reminder" wx:if="{{item.canCancel}}" data-id="{{item.reminderId}}" bindtap="cancelSavedReminder" disabled="{{!!reminderCancellingId || submitting}}" loading="{{reminderCancellingId === item.reminderId}}">{{reminderCancellingId === item.reminderId ? '正在取消' : '取消提醒'}}</button>
+          <text class="sending-hint" wx:if="{{item.sending}}">正在发送，暂时无法取消</text>
+        </view>
+        <text class="reminders-subhead history-heading">最近30天</text>
+        <text class="reminders-empty" wx:if="{{!reminderHistory.length}}">暂无历史提醒</text>
+        <view class="reminder-row" wx:for="{{reminderHistory}}" wx:key="reminderId">
+          <view class="reminder-row-head"><text class="reminder-name">{{item.buildingName}} · {{item.name}}</text><text class="reminder-status {{item.statusClass}}">{{item.statusText}}</text></view>
+          <text class="reminder-details">{{item.remindDateText}} 提醒 · 提前 {{item.minutes}} 分钟</text>
+        </view>
+        <text class="reminders-hint">修改提前量，请先取消再重新设置。微信通知请在服务通知中查看。</text>
+      </block>
+    </view>
+  </view>
+  <view class="list-toolbar">
+    <view class="list-heading"><text class="list-title">设备列表</text><text class="data-status {{stale || error ? 'stale' : ''}}">{{loading ? (hasData ? '更新中' : '正在加载') : (error ? (hasData ? '上次采集' : '更新失败') : '每30秒更新')}}</text></view>
+    <button class="refresh-button" bindtap="retry" disabled="{{loading || submitting}}" aria-label="刷新设备状态"><text class="refresh-symbol">↻</text><text>刷新</text></button>
+  </view>
+  <view class="filter-toolbar"><text>{{buildings[currentIdx].id === '27136' ? '可用优先' : '空闲优先'}} · 按预计结束时间排序</text><label class="idle-filter"><text>{{buildings[currentIdx].id === '27136' ? '仅看可用' : '仅看空闲'}}</text><switch checked="{{idleOnly}}" color="{{theme === 'dark' ? '#75c9a5' : '#18794e'}}" bindchange="toggleIdleOnly" aria-label="仅看可用设备" /></label></view>
+  <view class="error-banner" wx:if="{{error}}">
+    <text>{{error}}{{hasData ? '；以下为上次采集的数据' : ''}}</text>
+    <button class="retry-btn" bindtap="retry" disabled="{{loading}}">重新加载</button>
+  </view>
+  <view class="placeholder" wx:if="{{loading && !hasData && !error}}"><view class="loader"></view><text class="placeholder-title">正在查询设备</text><text class="placeholder-detail">稍等一下，马上就好</text></view>
+  <view class="placeholder" wx:if="{{!loading && !hasData && error}}"><text class="placeholder-title">设备数据加载失败</text><text class="placeholder-detail">请检查网络后重新加载</text></view>
+  <view class="device-section" wx:if="{{hasData && washerCount}}">
+    <view class="section-head"><text class="section-title">洗衣机</text><text class="section-count">{{washerCount}} 台 · {{washerIdleCount}} 台{{buildings[currentIdx].id === '27136' ? '可用' : '空闲'}}</text></view>
+    <device-card wx:for="{{washers}}" wx:key="id" theme="{{theme}}" device="{{item}}" expanded="{{remindingId === item.id}}" minutes="{{remindMin}}" reminder-time="{{remindTimeText}}" busy="{{submitting || !!reminderCancellingId}}" bind:toggle="showRemindOpts" bind:minuteschange="onRemindMinInput" bind:confirm="confirmReminder" />
+    <view class="filter-empty" wx:if="{{idleOnly && !washers.length}}">当前没有{{buildings[currentIdx].id === '27136' ? '可用' : '空闲'}}洗衣机</view>
+  </view>
+  <view class="device-section" wx:if="{{hasData && dryerCount}}">
+    <view class="section-head"><text class="section-title">烘干机</text><text class="section-count">{{dryerCount}} 台 · {{dryerIdleCount}} 台{{buildings[currentIdx].id === '27136' ? '可用' : '空闲'}}</text></view>
+    <device-card wx:for="{{dryers}}" wx:key="id" theme="{{theme}}" device="{{item}}" expanded="{{remindingId === item.id}}" minutes="{{remindMin}}" reminder-time="{{remindTimeText}}" busy="{{submitting || !!reminderCancellingId}}" bind:toggle="showRemindOpts" bind:minuteschange="onRemindMinInput" bind:confirm="confirmReminder" />
+    <view class="filter-empty" wx:if="{{idleOnly && !dryers.length}}">当前没有{{buildings[currentIdx].id === '27136' ? '可用' : '空闲'}}烘干机</view>
+  </view>
+  <view class="placeholder" wx:if="{{hasData && !washerCount && !dryerCount}}"><text class="placeholder-title">暂无设备</text><text class="placeholder-detail">该楼栋还没有可展示的设备</text></view>
+  <view class="page-footer">
+    <text class="refresh" wx:if="{{lastUpdate}}">采集于 {{lastUpdate}}{{stale ? ' · 数据未更新' : ' · 支持下拉刷新'}}</text>
+    <text class="usage-hint">使用中的设备可订阅微信提醒，提前安排取衣时间。</text>
+  </view>
+</view>

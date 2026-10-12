@@ -1,0 +1,20 @@
+{
+  "buildings": [
+    {"id": "27131", "name": "西21楼"},
+    {"id": "27136", "name": "西16楼"}
+  ],
+  "reservations": {
+    "27136": {
+      "sourceUrl": "https://docs.qq.com/sheet/DT1FqTlV4SWVqWWhs?tab=ss_9ipbgd",
+      "devices": {
+        "10658704": "washer_1",
+        "10659038": "washer_2",
+        "10659215": "washer_3",
+        "10659704": "washer_4",
+        "10649028": "dryer"
+      }
+    }
+  },
+  "wxAppId": "wx5fa1ddbd13ea7e3b",
+  "wxTemplateId": "Dulyz09I_W866SktNizBqBRahrwAUK2OsamFITqaHYs"
+}

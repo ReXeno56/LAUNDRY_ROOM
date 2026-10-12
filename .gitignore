@@ -1,0 +1,37 @@
+.env
+.env.*
+!.env.example
+
+# Dependencies and generated files
+node_modules/
+__pycache__/
+*.pyc
+*.pyo
+.DS_Store
+/tmp/
+instance/
+venv/
+.venv/
+.pytest_cache/
+tests/node_modules/
+.playwright-mcp/
+release.json
+.gradle/
+build/
+*.apk
+*.aab
+
+# Runtime data and credentials
+*.db
+*.sqlite
+*.sqlite3
+*.sqlite3-*
+*.pem
+*.key
+*.jks
+*.keystore
+cert-info.txt
+
+# Local developer settings
+.claude/
+project.private.config.json

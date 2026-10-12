@@ -1,0 +1,27 @@
+<view class="device-shell theme-{{theme}}">
+<view class="card {{device.stateClass}}">
+  <view class="card-header">
+    <view class="card-icon"><view class="machine-icon"><view class="machine-light"></view><view class="machine-drum"></view></view></view>
+    <view class="card-main">
+      <text class="card-name">{{device.name}}</text>
+      <text class="card-time">{{device.deviceTimeText}}</text>
+    </view>
+    <text class="card-badge {{device.stateClass}}">{{device.stateText}}</text>
+  </view>
+  <view class="card-reservations" wx:if="{{device.currentReservationText || device.nextReservationText}}">
+    <text class="reservation-current" wx:if="{{device.currentReservationText}}">{{device.currentReservationText}}</text>
+    <text class="reservation-next" wx:if="{{device.nextReservationText}}">{{device.nextReservationText}}</text>
+  </view>
+  <view class="card-actions" wx:if="{{device.canRemind}}">
+    <view class="reminder-saved" wx:if="{{device.reminderSet}}"><text>✓ {{device.reminderMinutes ? '已设置提前' + device.reminderMinutes + '分钟提醒' : '已设置提醒'}}</text></view>
+    <button wx:else class="remind-btn" disabled="{{busy}}" bindtap="toggle">{{expanded ? '收起提醒设置' : '订阅微信提醒'}}</button>
+    <view class="remind-box" wx:if="{{expanded && !device.reminderSet}}">
+      <view class="remind-heading"><text class="remind-label">结束前提醒我</text><view class="remind-value"><text class="remind-big">{{minutes}}</text><text class="remind-unit">分钟</text></view></view>
+      <slider min="1" max="30" step="1" value="{{minutes}}" disabled="{{busy}}" bindchange="changeMinutes" bindchanging="changeMinutes" block-size="22" activeColor="{{theme === 'dark' ? '#75c9a5' : '#37a971'}}" blockColor="{{theme === 'dark' ? '#75c9a5' : '#37a971'}}" />
+      <view class="slider-scale"><text>提前 1 分钟</text><text>提前 30 分钟</text></view>
+      <view class="remind-at" wx:if="{{reminderTime}}"><text>将在 </text><text class="remind-at-time">{{reminderTime}}</text><text> 提醒</text></view>
+      <button class="remind-ok" disabled="{{busy}}" loading="{{busy}}" bindtap="confirm">{{busy ? '正在设置' : '确认订阅提醒'}}</button>
+    </view>
+  </view>
+</view>
+</view>
